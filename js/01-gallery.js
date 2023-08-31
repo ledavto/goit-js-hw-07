@@ -3,26 +3,41 @@ import { galleryItems } from './gallery-items.js';
 
 const ulEl = document.querySelector(".gallery");
 
-galleryItems.forEach(element => {
-    const imgEl = document.createElement("img");
-    imgEl.classList.add("gallery__image");
-    imgEl.src = element.preview;
-    imgEl.alt = element.description;
-    imgEl.setAttribute("data-source", element.original)
+const imgEl = galleryItems.map(({preview,original,description }) => 
+  `<li class="gallery__item">
+  <a class="gallery__link" href="${original}">
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+      
+    />
+  </a>
+</li>
+`
+).join("");
+
+ulEl.insertAdjacentHTML("beforeend", imgEl);
+
+// galleryItems.forEach(element => {
+//     const imgEl = document.createElement("img");
+//     imgEl.classList.add("gallery__image");
+//     imgEl.src = element.preview;
+//     imgEl.alt = element.description;
+//     imgEl.setAttribute("data-source", element.original)
    
-    const hrefImg = document.createElement("a");
-    hrefImg.classList.add("gallery__link");
-    hrefImg.href = element.original;
+//     const hrefImg = document.createElement("a");
+//     hrefImg.classList.add("gallery__link");
+//     hrefImg.href = element.original;
 
-    const liItem = document.createElement("li");
-    liItem.classList.add("gallery__item");
+//     const liItem = document.createElement("li");
+//     liItem.classList.add("gallery__item");
 
-    ulEl.append(liItem);
-    liItem.append(hrefImg);
-    hrefImg.append(imgEl);
-    
-    
-});
+//     ulEl.append(liItem);
+//     liItem.append(hrefImg);
+//     hrefImg.append(imgEl);
+// });
 
 ulEl.addEventListener("click", (event) => {
   if (event.target.nodeName !== "IMG") {
@@ -34,7 +49,7 @@ ulEl.addEventListener("click", (event) => {
   console.log("event.currentTarget: ", event.currentTarget);
 });
 
-// import * as basicLightbox from 'basiclightbox'
+//import * as basicLightbox from 'basiclightbox';
 
 // const instance = basicLightbox.create(`
 //     <div class="modal">
