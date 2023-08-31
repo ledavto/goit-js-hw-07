@@ -49,7 +49,8 @@ ulEl.addEventListener("click", (event) => {
   console.log("event.currentTarget: ", event.currentTarget);
 });
 
-//import * as basicLightbox from 'basiclightbox';
+
+// import * as basicLightbox from 'basiclightbox'
 
 // const instance = basicLightbox.create(`
 //     <div class="modal">
