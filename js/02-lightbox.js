@@ -19,24 +19,10 @@ ulEl.addEventListener("click", (event) => {
     return;
   }
   
-  // console.log("event.target: ", event.target);
-  // console.log("event.currentTarget: ", event.currentTarget);
 
- // import * as basicLightbox from 'basiclightbox'
-    //new SimpleLightbox('.some-element a', { /* options */ });
-  console.log(event.target.dataset.caption);
   let gallery = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250
      });
-// gallery.on('show.simplelightbox', function () {
-// 	// do something…
-// });
-
-  // document.addEventListener("keydown", event => {
-  //   if (event.code === "Escape") 
-  // console.log("key: ", event.key);
-  // console.log("code: ", event.code);
-//});
   
 });

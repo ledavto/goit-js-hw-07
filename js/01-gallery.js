@@ -44,12 +44,7 @@ ulEl.addEventListener("click", (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   }
-  
-  // console.log("event.target: ", event.target);
-  // console.log("event.currentTarget: ", event.currentTarget);
 
- // import * as basicLightbox from 'basiclightbox'
- 
   const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600" 
     >
@@ -65,4 +60,3 @@ ulEl.addEventListener("click", (event) => {
 });
 
 
-//console.log(galleryItems);
